@@ -5,60 +5,159 @@
         <link rel="stylesheet" href="main.css">
         <!-- External Script -->
         <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
+        <link href="assets/fontawesome-free-5.11.2-web/css/all.css" rel="stylesheet">
     </head>
     <body>
         <!-- Page Header Table -->
-        <table border="1" align="center">
+        <table align="center">
             <tr>
                 <td>
-                    <h1>The Ageless Shooter</h1>
+                    <center><h1>The Ageless Shooter</h1></center>
                     <h2>A look back at hall of famer Ray Allen's NBA career and accomplishments</h2>
                 </td>
             </tr>
         </table>
         <br>
         <!-- Chart Placement Table -->
-        <table border="1" align="center" style="width: 80%;">
+        <table align="center" style="width: 80%;">
             <tr>
                 <td style="width: 35%;">
                     <div class="infogram-embed" data-id="6965c62e-3f74-4658-8642-764d3d3eb418" data-type="interactive" data-title="Ray Allen Career Snapshot"></div><script>!function(e,i,n,s){var t="InfogramEmbeds",d=e.getElementsByTagName("script")[0];if(window[t]&&window[t].initialized)window[t].process&&window[t].process();else if(!e.getElementById(n)){var o=e.createElement("script");o.async=1,o.id=n,o.src="https://e.infogram.com/js/dist/embed-loader-min.js",d.parentNode.insertBefore(o,d)}}(document,0,"infogram-async");</script><div style="padding:8px 0;font-family:Arial!important;font-size:13px!important;line-height:15px!important;text-align:center;border-top:1px solid #dadada;margin:0 30px"><a href="https://infogram.com/6965c62e-3f74-4658-8642-764d3d3eb418" style="color:#989898!important;text-decoration:none!important;" target="_blank">Ray Allen Career Snapshot</a><br><a href="https://infogram.com" style="color:#989898!important;text-decoration:none!important;" target="_blank" rel="nofollow">Infogram</a></div>
                 </td>
                 <td style="width: 30%; vertical-align: top; text-align: center; padding: 3%;">
-                    <img src="assets/allteams.png" style="width: 400px; height: 200px;border-radius: 50%;">
+                    <img src="assets/allteams.png" style="width: 350px; height: 200px;border-radius: 50%;">
                     <br>
                     <br>
-                    <img src="assets/bucks.png" style="width: 400px; height: 500px;border-radius: 50%;">
+                    <img src="assets/bucks.png" style="width: 350px; height: 450px;border-radius: 50%;">
                     <br>
                     <br>
-                    <img src="assets/sonics.png" style="width: 400px; height: 500px;border-radius: 50%;">
+                    <img src="assets/sonics.png" style="width: 350px; height: 450px;border-radius: 50%;">
                     <br>
                     <br>
-                    <img src="assets/celtics.png" style="width: 400px; height: 500px;border-radius: 50%;">
+                    <img src="assets/celtics.png" style="width: 350px; height: 450px;border-radius: 50%;">
                     <br>
                     <br>
-                    <img src="assets/heat.png" style="width: 400px; height: 500px;border-radius: 50%;">
+                    <img src="assets/heat.png" style="width: 350px; height: 450px;border-radius: 50%;">
                 </td>
                 <td style="width: 35%;">
                     <div class="infogram-embed" data-id="ad8ac09b-be86-457d-892e-ed21abb595be" data-type="interactive" data-title="Copy: Ray Allen Career Snapshot"></div><script>!function(e,i,n,s){var t="InfogramEmbeds",d=e.getElementsByTagName("script")[0];if(window[t]&&window[t].initialized)window[t].process&&window[t].process();else if(!e.getElementById(n)){var o=e.createElement("script");o.async=1,o.id=n,o.src="https://e.infogram.com/js/dist/embed-loader-min.js",d.parentNode.insertBefore(o,d)}}(document,0,"infogram-async");</script><div style="padding:8px 0;font-family:Arial!important;font-size:13px!important;line-height:15px!important;text-align:center;border-top:1px solid #dadada;margin:0 30px"><a href="https://infogram.com/ad8ac09b-be86-457d-892e-ed21abb595be" style="color:#989898!important;text-decoration:none!important;" target="_blank">Copy: Ray Allen Career Snapshot</a><br><a href="https://infogram.com" style="color:#989898!important;text-decoration:none!important;" target="_blank" rel="nofollow">Infogram</a></div>                </td>
             </tr>
         </table>
+        <br><br><br><br><br><br><br><br>
         <h1 align="center">Was he All-Star worthy?</h1>
+        <br><br><br><br>
         <div align="center" id="radar"></div>
-        <table align="center" border="1" style="width: 70%;">
+        <br><br><br><br><br><br><br><br>
+        <h1 align="center">How did he maintain his scoring dominance for 17 years?</h1>
+        <br><br><br><br>
+        <table align="center" style="width: 80%;">
             <tr>
                 <td id="line" style="width: 50%;"></td>
                 <td id="donut" style="width: 50%;"></td>
             </tr>
         </table>
-        <h1 align="center">Check.</h1>
-        <h1 align="center">What about Hall of Fame?</h1>
+        <br><br><br><br><br><br><br><br>
+        <h1 align="center">But did he deserve a spot in the Hall of Fame?</h1>
+        <br><br>
         <h1 align="center">Had one of the best all-time 3-point shooting season...</h1>
-        <div id="scatter" align="center">Scatter Chart</div>
+        <table align="center" style="width: 80%;">
+            <tr>
+                <td>
+                    <div id="scatter" align="center"></div>
+                </td>
+            </tr>
+        </table>
+        <br><br><br><br>
         <h1 align="center">Has a collection of accolades...</h1>
-        <div align="center">Grid</div>
-        <h1 align="center">...and perhaps one of, if not, the greatest shot in NBA Finals history...</h1>
-        <div align="center">YouTube Clip</div>
-        <h1 align="center">Check!</h1>
+        <div align="center">
+            <table border="1" class="bold">
+                <tr style="background-color: darkgray;">
+                    <th>Honor</th>
+                    <th>Number of Times</th>
+                </tr>
+                <tr>
+                    <td>NBA Champion</td>
+                    <td>
+                        <i class="fas fa-trophy fa-3x" style="color: gold;" title="2008"></i>
+                        <i class="fas fa-trophy fa-3x" style="color: gold;" title="2013"></i>
+                    </td>
+                </tr>
+                <tr>
+                    <td>USA Men's Basketball Gold Medalist</td>
+                    <td>
+                        <i class="fas fa-trophy fa-3x" style="color: gold;" title="1995"></i>
+                        <i class="fas fa-trophy fa-3x" style="color: gold;" title="2000"></i>
+                        <i class="fas fa-trophy fa-3x" style="color: gold;" title="2003"></i>
+                    </td>
+                </tr>
+                <tr>
+                    <td>NBA All-Star</td>
+                    <td>
+                        <i class="fas fa-trophy fa-3x" style="color: gold;" title="2000"></i>
+                        <i class="fas fa-trophy fa-3x" style="color: gold;" title="2001"></i>
+                        <i class="fas fa-trophy fa-3x" style="color: gold;" title="2002"></i>
+                        <i class="fas fa-trophy fa-3x" style="color: gold;" title="2004"></i>
+                        <i class="fas fa-trophy fa-3x" style="color: gold;" title="2005"></i>
+                        <i class="fas fa-trophy fa-3x" style="color: gold;" title="2006"></i>
+                        <i class="fas fa-trophy fa-3x" style="color: gold;" title="2007"></i>
+                        <i class="fas fa-trophy fa-3x" style="color: gold;" title="2008"></i>
+                        <i class="fas fa-trophy fa-3x" style="color: gold;" title="2009"></i>
+                        <i class="fas fa-trophy fa-3x" style="color: gold;" title="2011"></i>
+                    </td>
+                </tr>
+                <tr>
+                    <td>All-NBA Second Team</td>
+                    <td>
+                        <i class="fas fa-trophy fa-3x" style="color: gold;" title="2005"></i>
+                    </td>
+                </tr>
+                <tr>
+                    <td>All-NBA Third Team</td>
+                    <td>
+                        <i class="fas fa-trophy fa-3x" style="color: gold;" title="2001"></i>
+                    </td>
+                </tr>
+                <tr>
+                    <td>NBA All-Rookie Second Team</td>
+                    <td>
+                        <i class="fas fa-trophy fa-3x" style="color: gold;" title="1997"></i>
+                    </td>
+                </tr>
+                <tr>
+                    <td>NBA Joe Dumars NBA Sportsmanship Award</td>
+                    <td>
+                        <i class="fas fa-trophy fa-3x" style="color: gold;" title="2003"></i>
+                    </td>
+                </tr>
+                <tr>
+                    <td>The Sporting News "Good Guy"</td>
+                    <td>
+                        <i class="fas fa-trophy fa-3x" style="color: gold;" title="2000"></i>
+                        <i class="fas fa-trophy fa-3x" style="color: gold;" title="2001"></i>
+                        <i class="fas fa-trophy fa-3x" style="color: gold;" title="2005"></i>
+                    </td>
+                </tr>
+                <tr>
+                    <td>NBA All-Star Weekend Three-point Shootout Champion</td>
+                    <td>
+                        <i class="fas fa-trophy fa-3x" style="color: gold;" title="2001"></i>
+                    </td>
+                </tr>
+                <tr>
+                    <td>USA Basketball Male Athlete of the Year</td>
+                    <td>
+                        <i class="fas fa-trophy fa-3x" style="color: gold;" title="1995"></i>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <br><br><br><br>
+        <h1 align="center">...and perhaps one of, if not, THE greatest shot in NBA Finals history...</h1>
+        <div align="center" style="width:50%;height:50px;">
+            <iframe src="https://giphy.com/embed/26grzzeWoSsK1ieoU" width="50%" height="50%" style="position:absolute;" frameBorder="0" class="giphy-embed" allowFullScreen></iframe>
+            <p><a href="https://giphy.com/gifs/nba-basketball-miami-heat-26grzzeWoSsK1ieoU">via GIPHY</a></p>
+        </div>
+        <br><br><br><br>
         <!-- Internal JS Import -->
         <script src="main.js"></script>
     </body>

@@ -1,5 +1,5 @@
 var donutSeries = {
-  keys: ['FT', '2P', '3P'],
+  keys: ['Free Throws', '2 Pointers', '3 Pointers'],
   data: [
     [205., 342., 176., 353., 348., 214., 316., 245., 378., 324., 279.,
       215., 237., 231., 193.,  97., 140., 105.],
@@ -20,7 +20,9 @@ var radarConfig = {
     },
     scaleK : {
       labels : ['Points','Assists','Rebounds','Steals', 'Blocks'],
-      aspect: 'circle'
+      aspect: 'circle',
+      fontFamily: 'Times',
+      fontSize: 24
     },
     series : [
       {
@@ -34,24 +36,29 @@ var radarConfig = {
     ],
     legend: {
         align: 'center',
-        'vertical-align': 'bottom'
+        'vertical-align': 'bottom',
+        fontFamily: 'Times',
+        backgroundColor: 'lightgray'
     },
     title: {
-      text: 'Not Your Average Shooting Guard'
+      text: 'Not Your Average Shooting Guard',
+      fontFamily: 'Times'
     },
     subtitle: {
-      text: 'A comparison between Ray Allen\'s career averages per game and all other shooting guards'
+      text: 'A comparison between Ray Allen\'s career averages per game and all other shooting guards',
+      fontFamily: 'Times'
     },
-    backgroundColor: 'lightgray'
+    backgroundColor: 'lightgray',
+    plotArea: {
+      position: 'center'
+    }
 };
 
 var lineConfig = {
   type: 'line',
   title: {
-    text: 'His Shooting Accuracy Over the Years'
-  },
-  legend: {
-
+    text: 'His Shooting Accuracy Over the Years',
+    fontFamily: 'Times'
   },
   'crosshair-x': {
     shared: true
@@ -79,15 +86,72 @@ var lineConfig = {
       values: [0.393, 0.364, 0.356, 0.423, 0.433, 0.434, 0.377, 0.392, 0.376,
         0.412, 0.372, 0.398, 0.409, 0.363, 0.444, 0.453, 0.419, 0.375]
     }
-  ]
+  ],
+  backgroundColor: 'lightgray',
+  scaleY: {
+    label: {
+      text: 'Accuracy (%)',
+      fontFamily: 'Times'
+    }
+  }
 };
 
 var donutConfig = {
   type: 'ring',
   title: {
-    text: 'His Total Points Breakdown'
+    text: 'His Total Points Per Year Breakdown',
+    fontFamily: 'Times'
   },
-  series: []
+  legend: {
+    backgroundColor: 'lightgray',
+    fontFamily: 'Times'
+  },
+  series: [],
+  backgroundColor: 'lightgray'
+};
+
+var scatterConfig = {
+  type: 'scatter',
+  title: {
+    text: 'Three Point Percentage Per Season for Qualified* Players',
+    fontFamily: 'Times'
+  },
+  source: {
+    text: '* To qualify for three-point field goal percentage (3P%), at least 82 three-pointers must be made that season.',
+    fontFamily: 'Times'
+  },
+  series: [],
+  plot: {
+    tooltip: {
+      text: '%t %vt/%kt',
+      x: '85%',
+      y: '5%',
+      fontSize: 14
+    }
+  },
+  gui: {
+    watermark: {
+      position: 'bl'
+    }
+  },
+  backgroundColor: 'lightgray',
+  scaleX: {
+    minValue: 0,
+    step: 200,
+    label: {
+      text: 'Three Pointers Attempted',
+      fontFamily: 'Times'
+    }
+  },
+  scaleY: {
+    minValue: 0,
+    maxValue: 450,
+    step: 100,
+    label: {
+      text: 'Three Pointers Made',
+      fontFamily: 'Times'
+    }
+  }
 };
 
 function renderDonut(nodeID) {
@@ -97,29 +161,95 @@ function renderDonut(nodeID) {
       values: [donutSeries['data'][idx][nodeID]]
     }
   });
-  console.log(pieDataSet);
   zingchart.exec('donut', 'setseriesdata', {
     data: pieDataSet
   });
 };
 
+// Utility function to fetch any file from the server
+function fetchJSONFile(filePath, callbackFunc) {
+  console.debug("Fetching file:", filePath);
+  var httpRequest = new XMLHttpRequest();
+  httpRequest.onreadystatechange = function() {
+      if (httpRequest.readyState === 4) {
+          if (httpRequest.status === 200 || httpRequest.status === 0) {
+              console.info("Loaded file:", filePath);
+              var data = JSON.parse(httpRequest.responseText);
+              console.debug("Data parsed into valid JSON!");
+              console.debug(data);
+              if (callbackFunc) callbackFunc(data);
+          } else {
+              console.error("Error while fetching file", filePath, 
+                  "with error:", httpRequest.statusText);
+          }
+      }
+  };
+  httpRequest.open('GET', filePath);
+  httpRequest.send();
+};
+
+function renderScatter(data) {
+  var array = data['data'];
+  var series = [];
+  var scatterData = array.map(function(elm, idx) {
+    var pt = [[elm[2], elm[3]]];
+    if (elm[0] + ' (' + elm[1] + ')' != 'Ray Allen (2006)') {
+      return {
+        text: elm[0] + ' (' + elm[1] + ')',
+        values: pt,
+        marker: {
+          backgroundColor: 'black'
+        }
+      }
+    } else {
+      return {
+        text: elm[0] + ' (' + elm[1] + ')',
+        values: pt,
+        marker: {
+          backgroundColor: 'green',
+          type: 'star5',
+          size: 7
+        },
+        'value-box': {
+          text: '%t',
+          placement: 'right'
+        }
+      }
+    }
+  });
+  zingchart.exec('scatter', 'setseriesdata', {
+    data: scatterData
+  });
+};
+
+function onMouseoverNode(e) {
+  renderDonut(e['nodeindex']);
+};
+
 function doMain() {
-    zingchart.render({ 
-      id : 'radar', 
-      data : radarConfig
-    });
-    
-    zingchart.render({
-      id: 'line',
-      data: lineConfig
-    });
+  fetchJSONFile('data/scatterData.json', renderScatter);
+  zingchart.render({
+    id: 'scatter',
+    data: scatterConfig
+  });
+  zingchart.render({ 
+    id : 'radar', 
+    data : radarConfig
+  });
+  
+  zingchart.render({
+    id: 'line',
+    data: lineConfig
+  });
 
-    zingchart.render({
-      id: 'donut',
-      data: donutConfig
-    });
+  zingchart.render({
+    id: 'donut',
+    data: donutConfig
+  });
 
-    renderDonut(0);
+zingchart.bind('line', 'node_mouseover', onMouseoverNode);
+
+renderDonut(0);
 }
 
 document.onload = doMain();
