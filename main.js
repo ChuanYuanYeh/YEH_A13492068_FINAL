@@ -104,7 +104,9 @@ var donutConfig = {
   },
   legend: {
     backgroundColor: 'lightgray',
-    fontFamily: 'Times'
+    fontFamily: 'Times',
+    x: '50%',
+    y: '50%'
   },
   series: [],
   backgroundColor: 'lightgray'
