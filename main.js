@@ -105,8 +105,8 @@ var donutConfig = {
   legend: {
     backgroundColor: 'lightgray',
     fontFamily: 'Times',
-    x: '50%',
-    y: '50%'
+    x: '0%',
+    y: '7%'
   },
   series: [],
   backgroundColor: 'lightgray'
@@ -126,8 +126,8 @@ var scatterConfig = {
   plot: {
     tooltip: {
       text: '%t %vt/%kt',
-      x: '0%',
-      y: '5%',
+      x: '10%',
+      y: '7%',
       fontSize: 14
     }
   },
