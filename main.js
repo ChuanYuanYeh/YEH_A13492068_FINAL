@@ -124,7 +124,7 @@ var scatterConfig = {
   plot: {
     tooltip: {
       text: '%t %vt/%kt',
-      x: '75%',
+      x: '0%',
       y: '5%',
       fontSize: 14
     }
