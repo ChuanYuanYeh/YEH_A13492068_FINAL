@@ -145,7 +145,7 @@ var scatterConfig = {
   source: {
     text: '* To qualify for three-point field goal percentage (3P%), at least 82 three-pointers must be made that season.',
     fontFamily: 'Times',
-    fontSize: 14
+    fontSize: 12
   },
   series: [],
   plot: {
