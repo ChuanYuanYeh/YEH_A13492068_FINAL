@@ -13,17 +13,21 @@ var donutSeries = {
 var radarConfig = {
     type : 'radar',
     plot : {
-      aspect : 'area'
+      aspect : 'rose'
     },
     scaleV : {
-      values: '0:20:1'
+      values: '0:20:1',
+      item: {
+        fontColor: 'black'
+      }
     },
     scaleK : {
       labels : ['Points','Assists','Rebounds','Steals', 'Blocks'],
       aspect: 'circle',
       item: {
         fontFamily: 'Times',
-        fontSize: 22
+        fontSize: 22,
+        fontColor: 'black'
       }
     },
     series : [
@@ -124,7 +128,7 @@ var donutConfig = {
     y: '7%',
     item: {
       fontFamily: 'Times',
-      fontSize: 18
+      fontSize: 14
     }
   },
   series: [],
@@ -147,7 +151,7 @@ var scatterConfig = {
   plot: {
     tooltip: {
       text: '%t %vt/%kt',
-      x: '10%',
+      x: '0%',
       y: '7%',
       fontFamily: 'Times',
       fontSize: 16
@@ -241,7 +245,7 @@ function renderScatter(data) {
           text: '%t',
           placement: 'right',
           fontFamily: 'Times',
-          fontSize: 16
+          fontSize: 22
         }
       }
     }
