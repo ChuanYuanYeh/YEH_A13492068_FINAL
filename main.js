@@ -21,8 +21,10 @@ var radarConfig = {
     scaleK : {
       labels : ['Points','Assists','Rebounds','Steals', 'Blocks'],
       aspect: 'circle',
-      fontFamily: 'Times',
-      fontSize: 24
+      item: {
+        fontFamily: 'Times',
+        fontSize: 22
+      }
     },
     series : [
       {
@@ -37,16 +39,21 @@ var radarConfig = {
     legend: {
         align: 'center',
         'vertical-align': 'bottom',
-        fontFamily: 'Times',
+        item: {
+          fontFamily: 'Times',
+          fontSize: 18
+        },
         backgroundColor: 'lightgray'
     },
     title: {
       text: 'Not Your Average Shooting Guard',
-      fontFamily: 'Times'
+      fontFamily: 'Times',
+      fontSize: 30
     },
     subtitle: {
       text: 'A comparison between Ray Allen\'s career averages per game and all other shooting guards',
-      fontFamily: 'Times'
+      fontFamily: 'Times',
+      fontSize: 18
     },
     backgroundColor: 'lightgray',
     plotArea: {
@@ -58,17 +65,24 @@ var lineConfig = {
   type: 'line',
   title: {
     text: 'His Shooting Accuracy Over the Years',
-    fontFamily: 'Times'
+    fontFamily: 'Times',
+    fontSize: 30
   },
   'crosshair-x': {
     shared: true
   },
   'scale-x': {
     label: {
-      text: 'Year'
+      text: 'Year',
+      fontFamily: 'Times',
+      fontSize: 18
     },
     labels: ['1997','1998','1999','2000','2001','2002','2003','2004','2005','2006','2007','2008','2009','2010',
-    '2011','2012','2013','2014']
+    '2011','2012','2013','2014'],
+    item: {
+      fontFamily: 'Times',
+      fontSize: 12
+    }
   },
   series: [
     {
@@ -91,7 +105,8 @@ var lineConfig = {
   scaleY: {
     label: {
       text: 'Accuracy (%)',
-      fontFamily: 'Times'
+      fontFamily: 'Times',
+      fontSize: 18
     }
   }
 };
@@ -100,13 +115,17 @@ var donutConfig = {
   type: 'ring',
   title: {
     text: 'His Total Points Per Year Breakdown',
-    fontFamily: 'Times'
+    fontFamily: 'Times',
+    fontSize: 30
   },
   legend: {
     backgroundColor: 'lightgray',
-    fontFamily: 'Times',
     x: '0%',
-    y: '7%'
+    y: '7%',
+    item: {
+      fontFamily: 'Times',
+      fontSize: 18
+    }
   },
   series: [],
   backgroundColor: 'lightgray'
@@ -116,11 +135,13 @@ var scatterConfig = {
   type: 'scatter',
   title: {
     text: 'Three Point Percentage Per Season for Qualified* Players',
-    fontFamily: 'Times'
+    fontFamily: 'Times',
+    fontSize: 30
   },
   source: {
     text: '* To qualify for three-point field goal percentage (3P%), at least 82 three-pointers must be made that season.',
-    fontFamily: 'Times'
+    fontFamily: 'Times',
+    fontSize: 14
   },
   series: [],
   plot: {
@@ -128,7 +149,8 @@ var scatterConfig = {
       text: '%t %vt/%kt',
       x: '10%',
       y: '7%',
-      fontSize: 14
+      fontFamily: 'Times',
+      fontSize: 16
     }
   },
   gui: {
@@ -139,19 +161,22 @@ var scatterConfig = {
   backgroundColor: 'lightgray',
   scaleX: {
     minValue: 0,
-    step: 200,
+    maxValue: 900,
+    step: 100,
     label: {
       text: 'Three Pointers Attempted',
-      fontFamily: 'Times'
+      fontFamily: 'Times',
+      fontSize: 18
     }
   },
   scaleY: {
     minValue: 0,
     maxValue: 450,
-    step: 100,
+    step: 50,
     label: {
       text: 'Three Pointers Made',
-      fontFamily: 'Times'
+      fontFamily: 'Times',
+      fontSize: 16
     }
   }
 };
@@ -214,7 +239,9 @@ function renderScatter(data) {
         },
         'value-box': {
           text: '%t',
-          placement: 'right'
+          placement: 'right',
+          fontFamily: 'Times',
+          fontSize: 16
         }
       }
     }
